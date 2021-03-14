@@ -6,7 +6,7 @@ export default function App  () {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.airtable.com/v0/app19N07E5O8fO4eK/Unknown?api_key=keyA2zXI6GJSr09Vq')
+    fetch('https://api.airtable.com/v0/app19N07E5O8fO4eK/Unknown?api_key=')
       .then((response) => response.json())
       .then((json) => setData(json.records))
       .catch((error) => console.error(error))
@@ -16,6 +16,7 @@ export default function App  () {
   return (
     <View style={{ flex: 1, padding: 24 }}>
       {isLoading ? <ActivityIndicator/> : (
+        
         <FlatList
           data={data}
           keyExtractor={({ id }, index) => id}
